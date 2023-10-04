@@ -1,13 +1,16 @@
 import re
 
-Product_Codes_API = "Jan 25, 2023 - 04:30 PM, Feb 28, 2023 - 00:00 AM, Sept 01, 2023 - 06:00 PM,  rgb(255, 0, 255), rgb(0, 255, 0), rgb(255, 255, 255), rgb(0, 0, 0), Breaking News: The outbreak of Covid-19, New Updates: Breaking News: The outbreak of Covid-19, Sports News:  Match Results, ABC123, , DEF250, ACE247, m@user.com, l@user.com, k@user.com"
+# Read the text from the file
+with open('alu_regex-data-extraction-group18/texts/event-date-time.txt', 'r') as file:
+    text = file.read()
 
 # Define the regex pattern to match product codes
-pattern = r'\b[A-Z]{3}\d{3}\b'I
+pattern = r'\b[A-Z]{3}\d{3}\b'
 
-# Use re.findall to extract all matching product codes from Product_Codes_API
-product_codes = re.findall(pattern, Product_Codes_API)
+# Use re.findall to extract all matching product codes from the text
+product_codes = re.findall(pattern, text)
 
 # Print the extracted product codes
 for code in product_codes:
     print(code)
+
