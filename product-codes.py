@@ -2,7 +2,7 @@ import re
 
 # Read the text from the file
 with open('alu_regex-data-extraction-group18/texts/event-date-time.txt', 'r') as file:
-    text = file.read()
+   text = file.read()
 
 # Define the regex pattern to match product codes
 pattern = r'\b[A-Z]{3}\d{3}\b'
