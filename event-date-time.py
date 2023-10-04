@@ -1,23 +1,13 @@
+#!/usr/bin/python3
 import re
 
-# Open the Event-Date-Time.txt file for reading
-with open("/alu_regex-data-extraction-group13/txt_vault/Event-Date-Time.txt", "r") as f:
-    # Read the entire file contents into a string
-    text = f.read()
+API_sample = "Jan 25, 2023 - 04:30 PM, Feb 28, 2023 - 00:00 AM, Sept 01, 2023 - 06:00 PM,  rgb(255, 0, 255), rgb(0, 255, 0), rgb(255, 255, 255), rgb(0, 0, 0), Breaking News: The outbreak of Covid-19, New Updates: Breaking News: The outbreak of Covid-19, Sports News:  Match Results, ABC123, , DEF250, ACE247, m@user.com, l@user.com, k@user.com"
 
-# Compile the regular expression for extracting event-date-times
-event_date_time_regex = re.compile(r"(?P<month>\w{3}) (?P<day>\d{2}), (?P<year>\d{4}) - (?P<hour>\d{2}):(?P<minute>\d{2}) (?P<am_pm>\w{2})")
-
-# Extract all of the event-date-times from the text
-event_date_times = event_date_time_regex.findall(text)
-
-# Format the extracted event-date-times in the specified format
-formatted_event_date_times = []
-for event_date_time in event_date_times:
-    formatted_event_date_time = f"{event_date_time[0]} {event_date_time[1]}, {event_date_time[2]} - {event_date_time[3]}:{event_date_time[4]} {event_date_time[5]}"
-    formatted_event_date_times.append(formatted_event_date_time)
-
-# Print the formatted event-date-times
-for formatted_event_date_time in formatted_event_date_times:
-    print(formatted_event_date_time)
+pattern = r"(\w{3}\s\d{2},\s\d{4}\s-\s\d{2}:\d{2}\s[APap][Mm])"
+matches = re.findall(pattern, API_sample)
+if matches:
+    for event in matches:
+        print(f"Event on: {event}")
+else:
+        print("No matching event found.")
 
