@@ -13,4 +13,3 @@ product_codes = re.findall(pattern, text)
 # Print the extracted product codes
 for code in product_codes:
     print(code)
-
