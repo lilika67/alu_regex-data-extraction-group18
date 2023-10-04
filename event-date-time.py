@@ -1,5 +1,6 @@
 import re
 
+
 # Open the Event-Date-Time.txt file for reading
 with open("/alu_regex-data-extraction-group18/texts/Event-Date-Time.txt", "r") as f:
     # Read the entire file contents into a string
