@@ -6,7 +6,7 @@ with open("/alu_regex-data-extraction-group18/texts/ingredient.txt", "r") as f:
     text = f.read()
 
 # Compile the regular expression for extracting restaurant names and ingredient
-name_cuisine_regex = re.compile(r"(?P<name>\w+(?:\s+\w+)*)\s+-\s+(?P<cuisine>\w+)")
+name_cuisine_regex = re.compile(r"^(.) - (.)$")
 
 # Extract all of the restaurant names and cuisines from the text
 name_cuisine_lists = name_cuisine_regex.findall(text)
